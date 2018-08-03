@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrapper">
+    <h2>Users</h2>
+    <ul id="user-list">
+      <script type="text/template" id="user-template">
+        {{#users}}
+          <li>
+            <img src={{ avatar }} />
+            <p><strong>username: </strong> {{ first_name }} {{ last_name }} </p>
+            <button data-id='{{id}}' class='remove'>x</button>
+          </li>
+        {{/users}}
+      </script>
+    </ul>
+
+    <h4>Add a user</h4>
+    <p>First Name:  <input type="text" id="first_name"></p>
+    <p>Last Name:  <input type="text" id="last_name"></p>
+    <p>Avatar Url:  <input type="text" id="avatar"></p>
+    <button id="add-user">Add</button>
+  </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+</body>
+</html>
