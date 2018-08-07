@@ -6,11 +6,16 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: [
-    path.resolve('./js_source/main.js'),
+    path.resolve('./js_source/script.js'),
     path.resolve('./scss/main.scss')],
   output:{
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js'
+  },
+  resolve: {
+    alias:{
+      helpers$ : path.join(__dirname, 'js_source/module/')
+    } 
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -36,6 +41,9 @@ module.exports = {
           use: "css-loader!resolve-url-loader!sass-loader?sourceMap",
           publicPath: "/dist"
         })
+      }, {
+        test: /\.hbs$/,
+        loader: "handlebars-loader"
       }
     ]
   },
