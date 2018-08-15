@@ -3,13 +3,13 @@ import petsTemplate from './pets-template.hbs';
   var pets = (function(){
 
     var $petsContainer = document.getElementById('pets-container');
-    
+
     _render();
 
     function _render(){
       getAPIData();
     }
-    
+
     function getAPIData(){
       $.ajax({
           method: 'GET',
@@ -22,13 +22,15 @@ import petsTemplate from './pets-template.hbs';
           }
         })
     }
-    
+
     function createHandlebarTemplate(data){      
       $petsContainer.innerHTML = petsTemplate(data)  
     }  
 });
 
 module.exports = pets;
+
+
 // (function(){
 //   var pets = {
 //     init: function(){
@@ -56,9 +58,6 @@ module.exports = pets;
 //     },
 //     createHandlebarTemplate: function(data){      
 //       this.$petsContainer.innerHTML = petsTemplate(data)  
-//     }
-//     return {
-//       init: init
 //     }
 //   }  
 // })();
